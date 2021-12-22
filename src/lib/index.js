@@ -22,10 +22,14 @@ const useCountdown = (initialState = defaultProps) => {
 	const [date, setDate] = useState(initialState);
 	const [index, setIndex] = useState(0);
 	const [state, setState] = useState(tranTimeToArray(date));
+	const timeouter = useRef();
 
 	useEffect(() => {
 		if (index !== 0) setState(tranTimeToArray(date));
-		setTimeout(() => setIndex((c) => c + 1), 1000);
+		timeouter.current = setTimeout(() => setIndex((c) => c + 1), 1000);
+		return () => {
+			clearTimeout(timeouter.current);
+		};
 	}, [index]);
 
 	return [
