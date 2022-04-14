@@ -1,4 +1,16 @@
-[![dev by JamesHsu](https://img.shields.io/badge/Dev%20by-Jameshsu1125-green)](https://github.com/jameshsu1125/) [![made in Taiwan](https://img.shields.io/badge/Made%20in-Taiwan-orange)](https://github.com/jameshsu1125/)
+[![NPM](https://img.shields.io/badge/NPM-ba443f?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+[![React](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+[![React](https://img.shields.io/badge/-ReactJs-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://zh-hant.reactjs.org/)
+[![React](https://img.shields.io/badge/Less-1d365d?style=for-the-badge&logo=less&logoColor=white)](https://lesscss.org/)
+[![React](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://www.w3schools.com/html/)
+[![React](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3schools.com/css/)
+[![NPM](https://img.shields.io/badge/DEV-Jameshsu1125-9cf?style=for-the-badge)](https://www.npmjs.com/~jameshsu1125)
+
+# Why use it?
+
+count down to specific date.
+
+#### [Live Demo](https://jameshsu1125.github.io/lesca-use-countdown/)
 
 # Installation
 
@@ -6,32 +18,33 @@
 npm install lesca-use-countdown --save
 ```
 
-# Usage
+## Usage
 
-```javascript
+```JSX
 import { useCountdown } from 'lesca-use-countdown';
 
-const [date, setDate] = useCountDown(new Date(2035, 0, 1, 0, 0, 0, 0)); // to 2035
+const [date, setDate] = useCountDown(new Date(2030, 0, 1, 0, 0, 0, 0)); // to 2030
 const [days, hours, minutes, seconds] = date;
 
 return (
-    <>
-        <div>{days}<div>
-        <div>{hours}<div>
-        <div>{minutes}<div>
-        <div>{seconds}<div>
-    </>
+    <div>
+      <span>{day}</span>days,
+      <span>{hour}</span>hours,
+      <span>{minute}</span>minutes,
+      <span>{second}</span>seconds.
+    </div>
 )
 ```
 
-# Methods
+## Development
 
-| method                    |   options   |                                                   description                                                    |                          default |
-| :------------------------ | :---------: | :--------------------------------------------------------------------------------------------------------------: | -------------------------------: |
-| useCountdown(initialDate) | initialDate | [new Date('2023, 1, 23')](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Date) | new Date(2035, 0, 1, 0, 0, 0, 0) |
+### Methods
 
-# Hook State Medthod
+| method                                                                                                             |     description     | default |
+| :----------------------------------------------------------------------------------------------------------------- | :-----------------: | ------: |
+| useCountdown([date](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Date):_date_) | the count down date |    2030 |
 
-| method                                                                                                      | options |   description    | default |
-| :---------------------------------------------------------------------------------------------------------- | :-----: | :--------------: | ------: |
-| **#setDate([Date](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Date))** |         | same as useState |         |
+### Features
+
+- TypeScript
+- maintain if necessary
