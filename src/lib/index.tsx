@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 
 const defaultProps = new Date(2060, 0, 1, 0, 0, 0, 0);
-
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
 const day = hour * 24;
 
-const tranTimeToArray = (date) => {
+const tranTimeToArray = (date: Date) => {
   const dat = date.getTime();
   const now = new Date().getTime();
   const distance = dat - now;
@@ -23,7 +22,7 @@ const useCountdown = (initialState = defaultProps) => {
   const [date, setDate] = useState(initialState);
   const [index, setIndex] = useState(0);
   const [state, setState] = useState(tranTimeToArray(date));
-  const ref = useRef();
+  const ref = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     if (index !== 0) setState(tranTimeToArray(date));
@@ -35,10 +34,10 @@ const useCountdown = (initialState = defaultProps) => {
 
   return [
     state,
-    (newDate) => {
+    (newDate: Date) => {
       setDate(newDate);
     },
-  ];
+  ] as const;
 };
 
 export { useCountdown };
