@@ -22,13 +22,13 @@ const useCountdown = (initialState = defaultProps) => {
   const [date, setDate] = useState(initialState);
   const [index, setIndex] = useState(0);
   const [state, setState] = useState(tranTimeToArray(date));
-  const ref = useRef<ReturnType<typeof setTimeout>>();
+  const ref = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (index !== 0) setState(tranTimeToArray(date));
     ref.current = setTimeout(() => setIndex((c) => c + 1), 1000);
     return () => {
-      clearTimeout(ref.current);
+      if (ref.current) clearTimeout(ref.current);
     };
   }, [index]);
 

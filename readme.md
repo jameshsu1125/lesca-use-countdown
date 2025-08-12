@@ -23,7 +23,7 @@ npm install lesca-use-countdown --save
 ```JSX
 import { useCountdown } from 'lesca-use-countdown';
 
-const [date, setDate] = useCountDown(new Date(2030, 0, 1, 0, 0, 0, 0)); // to 2030
+const [date, setDate] = useCountdown(new Date(2030, 0, 1, 0, 0, 0, 0)); // to 2030
 const [days, hours, minutes, seconds] = date;
 
 return (
